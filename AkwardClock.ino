@@ -3,7 +3,7 @@
 
    Author  : Benjamin Sølberg
    Email   : benjamin.soelberg@gmail.com
-   github
+   Github  : https://github.com/benjaminsoelberg/AkwardClock
    Version : 1.00
 
    Notes   :
