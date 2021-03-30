@@ -4,7 +4,7 @@
    Author  : Benjamin Sølberg
    Email   : benjamin.soelberg@gmail.com
    Github  : https://github.com/benjaminsoelberg/AkwardClock
-   Version : 1.00
+   Version : 1.01
 
    Notes   :
         #1 : Compile with -O2 to optimize for speed, not size to save battery
@@ -110,7 +110,7 @@ int main(void) {
 
     // Setup xtal caps and clock routing
     BCSCTL1 |= DIVA_3; // ACLK/8
-    BCSCTL3 |= XCAP_3; //12.5pF cap- setting for 32768Hz crystal
+    BCSCTL3 |= XCAP_3; //12.5pF cap- setting for 32.768 kHz crystal
 
     // Set P1.4-7 as input and low
     P1OUT &= ~(BIT4 | BIT5 | BIT6 | BIT7); // P1.4-7 low
@@ -122,7 +122,7 @@ int main(void) {
     // Generate initial permutation of tick bits
     permutate();
 
-    // Enable 32khz timer interrupt clock to once every 250ms
+    // Enable 32.768 kHz timer interrupt clock to once every 250 ms
     CCTL0 = CCIE;                   // CCR0 interrupt enabled
     CCR0 = 127;                     // 250 ms
     TACTL = TASSEL_1 + ID_3 + MC_1; // ACLK, /8, upmode
